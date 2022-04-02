@@ -44,7 +44,7 @@ export function decrypt(key, encryptedStr) {
 
 // console.log("\r\n原文:", content);
 // console.log("\r\n解密后:", decryptResult);
-// console.log("\r\n加密结果与原始密文一致:", decryptResult === content);
+// console.log("\r\n解密后与原文一致:", decryptResult === content);
 
 
 ```
