@@ -2,19 +2,20 @@
 
 ![my love](./logo.png) 
 
-## 功能介绍
+## 安装
+```
+yarn add cross-crypto
+```
+## 核心代码
 1. AES 
 
 ```typescript 
 const crypto = require("crypto-js");
+  
+// const content = `how old are you`;
+// const secret = "ihP9cS6oqy24HAay";
 
-// const content = `how do you do?`;
-// const secret = "my secret";
-
-const content = `how old are you`;
-const secret = "ihP9cS6oqy24HAay";
-
-function encrypt(key, originStr) {
+export function encrypt(key, originStr) {
     const keyBuffer = crypto.enc.Utf8.parse(key);
     const encryptedData = crypto.AES.encrypt(originStr, keyBuffer, {
         mode: crypto.mode.ECB,
@@ -25,7 +26,7 @@ function encrypt(key, originStr) {
     return hexData.toString().toUpperCase();
 }
 
-function decrypt(key, encryptedStr) {
+export function decrypt(key, encryptedStr) {
     const keyBuffer = crypto.enc.Utf8.parse(key);
     const encryptedHexBuffer = crypto.enc.Hex.parse(encryptedStr);
     const encryptedBase64Str = crypto.enc.Base64.stringify(encryptedHexBuffer);
@@ -37,21 +38,15 @@ function decrypt(key, encryptedStr) {
     return decryptContent;
 }
 
-const encryptResult = encrypt(secret, content);
-const decryptResult = decrypt(secret, encryptResult);
+// const encryptResult = encrypt(secret, content);
+// const decryptResult = decrypt(secret, encryptResult);
 
 
-console.log("\r\n原文:", content);
-console.log("\r\n解密后:", decryptResult);
-console.log("\r\n加密结果与原始密文一致:", decryptResult === content);
+// console.log("\r\n原文:", content);
+// console.log("\r\n解密后:", decryptResult);
+// console.log("\r\n加密结果与原始密文一致:", decryptResult === content);
 
 
-```
- 
-
-## 安装
-```
-yarn
 ```
 
 ## 测试   
